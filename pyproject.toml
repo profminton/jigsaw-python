@@ -31,7 +31,8 @@ build-backend = "scikit_build_core.build"
 requires = [
     "scikit-build-core>=0.7.0",
     "numpy>=1.25.2",
-    "scipy>=1.11.1"
+    "scipy>=1.11.1",
+    "cmake>=3.17.1"
 ]
 
 [tool.scikit-build]
