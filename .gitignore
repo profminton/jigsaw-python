@@ -6,18 +6,23 @@
 !README.md
 !LICENSE
 !pyproject.toml
+!CMakeLists.txt
 !example.py
 
 
 # Main python project
 !jigsawpy/
+!jigsawpy/*.py
 !jigsawpy/*/**.py
-!files/
-!files/*.msh
+!tests/
+!tests/*.py
 
 
 # jigsaw external dependency
 !external/
 !external/jigsaw/
+!cache/
 !cache/.keep
+!files/
+!files/*.msh
 

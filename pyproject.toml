@@ -1,8 +1,10 @@
-[tool.poetry]
+[project]
 name = "jigsawpy"
 version = "1.0.0"
 description = "Python interface for the JIGSAW meshing library."
-authors = ["Darren Engwirda <d.engwirda@gmail.com>"]
+authors = [
+    {name="Darren Engwirda", email="d.engwirda@gmail.com"}
+    ]
 homepage = "https://github.com/dengwirda/"
 keywords = ["Mesh-generation", "Delaunay", "Voronoi"]
 classifiers = [
@@ -19,28 +21,44 @@ classifiers = [
 ]
 readme = "README.md"
 license={file = "LICENSE"}
-
-# include = [
-#     { path = "jigsawpy/_lib/*", format = "wheel" },
-#     { path = "jigsawpy/_bin/*", format = "wheel" },
-# ]
-
-build-backend = "scikit_build_core.build"
+requires-python=">=3.6.0"
+dependencies = [
+    "numpy>=1.25.2",
+    "scipy>=1.11.1", 
+]
 
 [build-system]
 requires = [
     "scikit-build-core>=0.7.0",
     "numpy>=1.25.2",
     "scipy>=1.11.1",
-    "cmake>=3.17.1"
+    "cmake>=3.15.7"
 ]
+build-backend = "scikit_build_core.build"
 
 [tool.scikit-build]
 build-dir = "build/{wheel_tag}"
 cmake.verbose = true
+logging.level = "INFO"
+cmake.build-type = "Release"
+sdist.include=["files/*.msh"]
 
 [tool.cibuildwheel]
 test-command = "pytest {package}/tests"
 test-requires = ['pytest']
 skip = "pp* *i686 *-manylinux_i686 *_ppc64le *_s390x *-musllinux* *-win32"
 build-verbosity = 1
+
+[tool.cibuildwheel.macos]
+before-all = [
+    "brew install coreutils netcdf",
+]
+[tool.cibuildwheel.linux.environment]
+PREFIX="/usr/local"
+LD_LIBRARY_PATH="${PREFIX}/lib:/project/lib"
+CPATH="${PREFIX}/include:/project/include"
+
+[tool.cibuildwheel.linux]
+before-all = [
+    "yum install netcdf-devel -y",
+]

@@ -54,42 +54,42 @@ r"""
 ------------------------------------------------------------
  """
 
-from jigsawpy.msh_t import jigsaw_msh_t
-from jigsawpy.jig_t import jigsaw_jig_t
-from jigsawpy.def_t import jigsaw_def_t
-from jigsawpy.prj_t import jigsaw_prj_t
+from .msh_t import jigsaw_msh_t
+from .jig_t import jigsaw_jig_t
+from .def_t import jigsaw_def_t
+from .prj_t import jigsaw_prj_t
 
-from jigsawpy import jigsaw, libsaw
+from . import jigsaw, libsaw
 
-from jigsawpy.loadmsh import loadmsh
-from jigsawpy.savemsh import savemsh
-from jigsawpy.loadjig import loadjig
-from jigsawpy.savejig import savejig
+from .loadmsh import loadmsh
+from .savemsh import savemsh
+from .loadjig import loadjig
+from .savejig import savejig
 
-from jigsawpy.certify import certify
+from .certify import certify
 
-from jigsawpy.project import project
-from jigsawpy.bisect import bisect
+from .project import project
+from .bisect import bisect
 
-from jigsawpy.tools.predicate import trivol2, trivol3, \
+from .tools.predicate import trivol2, trivol3, \
     normal1, normal2, orient1, orient2
 
-from jigsawpy.tools.orthoball import tribal1, tribal2, \
+from .tools.orthoball import tribal1, tribal2, \
     tribal3, pwrbal1, pwrbal2, pwrbal3
 
-from jigsawpy.tools.scorecard import triscr2, triscr3, \
+from .tools.scorecard import triscr2, triscr3, \
     trideg2, trideg3, triang2, triang3, \
     pwrscr2, pwrscr3, centre2, centre3
 
-from jigsawpy.tools.projector import stereo3
+from .tools.projector import stereo3
 
-from jigsawpy.tools.mathutils import R3toS2, S2toR3
+from .tools.mathutils import R3toS2, S2toR3
 
-from jigsawpy.tools.meshutils import attach, jumble
+from .tools.meshutils import attach, jumble
 
-from jigsawpy.parse.saveoff import saveoff
-from jigsawpy.parse.savewav import savewav
-from jigsawpy.parse.savevtk import savevtk
+from .parse.saveoff import saveoff
+from .parse.savewav import savewav
+from .parse.savevtk import savevtk
 
 
 class cmd:
