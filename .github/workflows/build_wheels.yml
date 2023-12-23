@@ -13,13 +13,13 @@ jobs:
         os: [ubuntu-latest, macos-latest, windows-latest]
         include:
           - os: ubuntu-latest
-            cibw_arch: "aarch64"
+            cibw_archs: "aarch64"
           - os: ubuntu-latest
-            cibw_arch: "x86_64"
+            cibw_archs: "x86_64"
           - os: macos-latest
-            cibw_arch: "x86_64"
+            cibw_archs: "x86_64"
           - os: windows-latest
-            cibw_arch: "AMD64"
+            cibw_archs: "AMD64"
     env:
       SYSTEM_VERSION_COMPAT: 0
 
