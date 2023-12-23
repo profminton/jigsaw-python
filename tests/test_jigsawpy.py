@@ -1,3 +1,5 @@
+from contextlib import AbstractContextManager
+from typing import Any
 import unittest
 import os
 import tempfile
@@ -73,23 +75,87 @@ class TestAllCases(unittest.TestCase):
         self.temp_dir.cleanup() 
         return
 
-    def test_all_cases(self):
-        self.example(IDnumber=-1)
-        expected_files = [
-                "airfoil.jig", "airfoil.msh", "bunny.log", "case_0a.vtk", "case_0c.vtk",
-                "case_1b.vtk", "case_2b.vtk", "case_3b.vtk", "case_4a.vtk", "case_5a.vtk",
-                "case_6a.vtk", "case_6c.vtk", "case_7b.vtk", "case_8b.vtk", "lakes.log",
-                "piece.jig", "piece.msh", "airfoil.log", "bunny.jig", "bunny.msh",
-                "case_0b.vtk", "case_1a.vtk", "case_2a.vtk", "case_3a.vtk", "case_3c.vtk",
-                "case_4b.vtk", "case_5b.vtk", "case_6b.vtk", "case_7a.vtk", "case_8a.vtk",
-                "lakes.jig", "lakes.msh", "piece.log", "spacing.msh"
-            ]
+    
+    def test_case_0(self):
+        self.example(IDnumber=0)
+        expected_files = [ "case_0a.vtk", "case_0b.vtk", "case_0c.vtk" ]
 
         for file in expected_files:
             self.assertTrue(os.path.exists(os.path.join(self.dst_path,file)))
         
         return
     
+    def test_case_1(self):
+        self.example(IDnumber=1)
+        expected_files = [ "case_1a.vtk", "case_1b.vtk" ]
+
+        for file in expected_files:
+            self.assertTrue(os.path.exists(os.path.join(self.dst_path,file)))
+        
+        return
+    
+    def test_case_2(self):
+        self.example(IDnumber=2)
+        expected_files = [ "case_2a.vtk", "case_2b.vtk", "lakes.log", "lakes.jig", "lakes.msh" ]
+
+        for file in expected_files:
+            self.assertTrue(os.path.exists(os.path.join(self.dst_path,file)))
+        
+        return
+    
+    def test_case_3(self):
+        self.example(IDnumber=3)
+        expected_files = [ "case_3a.vtk", "case_3b.vtk", "case_3c.vtk", "bunny.jig", "bunny.msh", "bunny.log" ]
+
+        for file in expected_files:
+            self.assertTrue(os.path.exists(os.path.join(self.dst_path,file)))
+        
+        return
+    
+    def test_case_4(self):
+        self.example(IDnumber=4)
+        expected_files = [ "case_4a.vtk", "case_4b.vtk", "bunny.jig", "bunny.msh", "bunny.log" ]
+
+        for file in expected_files:
+            self.assertTrue(os.path.exists(os.path.join(self.dst_path,file)))
+        
+        return 
+    
+    def test_case_5(self):
+        self.example(IDnumber=5)
+        expected_files = [ "case_5a.vtk", "case_5b.vtk", "spacing.msh", "airfoil.log", "airfoil.jig", "airfoil.msh" ]
+
+        for file in expected_files:
+            self.assertTrue(os.path.exists(os.path.join(self.dst_path,file)))
+        
+        return
+    
+    def test_case_6(self):
+        self.example(IDnumber=6)
+        expected_files = [ "case_6a.vtk", "case_6b.vtk", "case_6c.vtk", "piece.log", "piece.jig", "piece.msh" ]
+
+        for file in expected_files:
+            self.assertTrue(os.path.exists(os.path.join(self.dst_path,file)))
+        
+        return
+    
+    def test_case_7(self):
+        self.example(IDnumber=7)
+        expected_files = [ "case_7a.vtk", "case_7b.vtk" ]
+
+        for file in expected_files:
+            self.assertTrue(os.path.exists(os.path.join(self.dst_path,file)))
+        
+        return
+    
+    def test_case_8(self):
+        self.example(IDnumber=8)
+        expected_files = [ "case_8a.vtk", "case_8b.vtk" ]
+
+        for file in expected_files:
+            self.assertTrue(os.path.exists(os.path.join(self.dst_path,file)))
+        
+        return
 
 if __name__ == '__main__':
     unittest.main()    
