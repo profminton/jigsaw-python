@@ -26,3 +26,7 @@
 !files/
 !files/*.msh
 
+# Github workflows
+!.github/
+!.github/workflows/
+!.github/workflows/*.yml
