@@ -51,7 +51,7 @@ build-verbosity = 1
 
 [tool.cibuildwheel.macos]
 before-all = [
-    "brew install coreutils netcdf",
+    "brew install coreutils netcdf ninja cmake llvm libomp",
 ]
 [tool.cibuildwheel.linux.environment]
 PREFIX="/usr/local"
@@ -61,7 +61,7 @@ CPATH="${PREFIX}/include:/project/include"
 [tool.cibuildwheel.linux]
 before-all = [
     "yum install epel-release -y",
-    "yum install netcdf-devel -y",
+    "yum install netcdf-devel ninja-build cmake -y",
 ]
 
 [tool.cibuildwheel.windows]
