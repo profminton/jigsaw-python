@@ -60,5 +60,6 @@ CPATH="${PREFIX}/include:/project/include"
 
 [tool.cibuildwheel.linux]
 before-all = [
+    "yum install epel-release -y",
     "yum install netcdf-devel -y",
 ]
