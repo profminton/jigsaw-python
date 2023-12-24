@@ -21,17 +21,17 @@ classifiers = [
 ]
 readme = "README.md"
 license={file = "LICENSE"}
-requires-python=">=3.6.0"
+requires-python=">=3.7"
 dependencies = [
-    "numpy>=1.25.2",
-    "scipy>=1.11.1", 
+    "numpy>=1.21.6",
+    "scipy>=1.7.3", 
 ]
 
 [build-system]
 requires = [
     "scikit-build-core>=0.7.0",
-    "numpy>=1.25.2",
-    "scipy>=1.11.1",
+    "numpy>=1.21.6",
+    "scipy>=1.7.3",
     "cmake>=3.15.7"
 ]
 build-backend = "scikit_build_core.build"
@@ -62,4 +62,10 @@ CPATH="${PREFIX}/include:/project/include"
 before-all = [
     "yum install epel-release -y",
     "yum install netcdf-devel -y",
+]
+
+[tool.cibuildwheel.windows]
+before-all = [
+    "vcpkg integrate install",
+    "vcpkg install netcdf-c"
 ]
